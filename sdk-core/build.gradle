@@ -1,0 +1,20 @@
+jar {
+    baseName 'ssm-sdk-core'
+}
+
+ext {
+    fabric_version = '1.4.0'
+    bouncycastle_version = '1.61'
+    jackson_version = '2.9.8'
+    slf4jlog4j_version = '1.7.26'
+}
+
+dependencies {
+
+    implementation "org.hyperledger.fabric-sdk-java:fabric-sdk-java:$fabric_version"
+    implementation "org.bouncycastle:bcprov-jdk15on:$bouncycastle_version"
+    implementation "com.fasterxml.jackson.core:jackson-databind:$jackson_version"
+    implementation "org.slf4j:slf4j-log4j12:$slf4jlog4j_version"
+
+
+}

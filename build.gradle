@@ -1,0 +1,70 @@
+allprojects {
+    apply plugin: 'idea'
+
+    group = 'io.civis.ssm'
+    version = '0.0.1-SNAPSHOT'
+}
+
+subprojects {
+
+//    plugins {
+//        id 'org.springframework.boot' version '2.1.2.RELEASE'
+//	id 'org.jetbrains.kotlin.jvm' version '1.2.71'
+//	id 'org.jetbrains.kotlin.plugin.spring' version '1.2.71'
+//    }
+
+//apply plugin: 'io.spring.dependency-management'
+
+    apply plugin: 'java'
+    
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+
+    repositories {
+        mavenCentral()
+    }
+
+    ext {
+        guava_version = '27.0.1-jre'
+        slf4j_version = '1.7.26'
+        assertj_version = '3.12.0'
+        junit_version = '5.4.0'
+    }
+
+    dependencies {
+
+        implementation "com.google.guava:guava:$guava_version"
+        implementation "org.slf4j:slf4j-api:$slf4j_version"
+
+        testImplementation "org.assertj:assertj-core:$assertj_version"
+        testImplementation "org.junit.jupiter:junit-jupiter:$junit_version"
+
+//	implementation 'org.springframework.boot:spring-boot-starter-web'
+//	implementation 'com.fasterxml.jackson.module:jackson-module-kotlin'
+//	implementation 'org.jetbrains.kotlin:kotlin-reflect'
+//	implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
+//	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+
+    }
+
+    test {
+        useJUnitPlatform()
+        testLogging {
+            events "passed", "skipped", "failed"
+        }
+    }
+//compileKotlin {
+//	kotlinOptions {
+//		freeCompilerArgs = ['-Xjsr305=strict']
+//		jvmTarget = '1.8'
+//	}
+//}
+//
+//compileTestKotlin {
+//	kotlinOptions {
+//		freeCompilerArgs = ['-Xjsr305=strict']
+//		jvmTarget = '1.8'
+//	}
+//}
+}
