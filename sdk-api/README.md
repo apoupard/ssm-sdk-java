@@ -1,4 +1,4 @@
-#SDK API
+# SDK API
 
 ## Configuration
 sdk-core configuration and certificate must put in: `sdk-api/src/main/resources/`
