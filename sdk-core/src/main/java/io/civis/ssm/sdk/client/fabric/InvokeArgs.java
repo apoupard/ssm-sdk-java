@@ -1,8 +1,12 @@
 package io.civis.ssm.sdk.client.fabric;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.common.collect.Lists;
 
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Objects;
 
 public class InvokeArgs {
@@ -14,6 +18,17 @@ public class InvokeArgs {
     public InvokeArgs(String function, String... values) {
         this.function = function;
         this.values = Lists.newArrayList(values);
+    }
+
+    @JsonCreator
+    public InvokeArgs(@JsonProperty("function") String function, @JsonProperty("values") List<String> values) {
+        this.function = function;
+        this.values = Lists.newArrayList(values);
+    }
+
+    public InvokeArgs(String function, Iterator<String> iterator) {
+        this.function = function;
+        this.values = Lists.newArrayList(iterator);
     }
 
     public String getFunction() {

@@ -6,4 +6,4 @@ pluginManagement {
 
 rootProject.name = 'ssm-sdk'
 
-include 'sdk-core'
+include 'sdk-core', 'sdk-api'

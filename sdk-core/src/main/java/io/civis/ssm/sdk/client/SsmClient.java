@@ -21,7 +21,7 @@ public class SsmClient {
     private static final String CHANNEL = "sandbox";
 
     public static SsmClient fromConfigFile(String filename) throws IOException {
-        FabricClient client = FabricClient.fromCongifFile(filename);
+        FabricClient client = FabricClient.fromConfigFile(filename);
         return new SsmClient(client);
     }
 

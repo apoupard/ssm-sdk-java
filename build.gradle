@@ -1,27 +1,30 @@
 allprojects {
     apply plugin: 'idea'
 
-    group = 'io.civis.ssm'
+    group = 'io.civis.ssm.sdk'
     version = '0.0.1-SNAPSHOT'
+
 }
 
 subprojects {
-
-//    plugins {
-//        id 'org.springframework.boot' version '2.1.2.RELEASE'
-//	id 'org.jetbrains.kotlin.jvm' version '1.2.71'
-//	id 'org.jetbrains.kotlin.plugin.spring' version '1.2.71'
-//    }
-
-//apply plugin: 'io.spring.dependency-management'
-
     apply plugin: 'java'
-    
+
     sourceCompatibility = 1.8
     targetCompatibility = 1.8
 
     repositories {
+        mavenLocal()
         mavenCentral()
+    }
+
+    ext {
+        fabric_version = '1.4.0'
+    }
+
+    buildscript {
+        repositories {
+            mavenCentral()
+        }
     }
 
     ext {
@@ -38,14 +41,6 @@ subprojects {
 
         testImplementation "org.assertj:assertj-core:$assertj_version"
         testImplementation "org.junit.jupiter:junit-jupiter:$junit_version"
-
-//	implementation 'org.springframework.boot:spring-boot-starter-web'
-//	implementation 'com.fasterxml.jackson.module:jackson-module-kotlin'
-//	implementation 'org.jetbrains.kotlin:kotlin-reflect'
-//	implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
-//	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-
-
     }
 
     test {
@@ -54,17 +49,4 @@ subprojects {
             events "passed", "skipped", "failed"
         }
     }
-//compileKotlin {
-//	kotlinOptions {
-//		freeCompilerArgs = ['-Xjsr305=strict']
-//		jvmTarget = '1.8'
-//	}
-//}
-//
-//compileTestKotlin {
-//	kotlinOptions {
-//		freeCompilerArgs = ['-Xjsr305=strict']
-//		jvmTarget = '1.8'
-//	}
-//}
 }

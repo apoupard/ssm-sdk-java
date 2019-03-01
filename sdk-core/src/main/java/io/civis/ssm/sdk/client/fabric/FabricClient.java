@@ -14,8 +14,8 @@ public class FabricClient {
 
     private static final Logger logger = LoggerFactory.getLogger(FabricClient.class);
 
-    public static FabricClient fromCongifFile(String filename) throws IOException {
-        FabricConfig fabricConfig = FabricConfig.loadFromFabricConfig(filename);
+    public static FabricClient fromConfigFile(String filename) throws IOException {
+        FabricConfig fabricConfig = FabricConfig.loadFromFile(filename);
         FabricClientFactory clientFactoty = FabricClientFactory.factory(fabricConfig);
         FabricUserFactory userBuilder = FabricUserFactory.factory(clientFactoty);
         FabricChannelFactory channelFactory = FabricChannelFactory.factory(fabricConfig);

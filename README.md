@@ -1,7 +1,7 @@
 # Java Sdk for blockchain-ssm
 
 [Blockchain-ssm](https://github.com/civis-blockchain/blockchain-ssm) is a signing state machines chaincode developped for Hyperleger Fabric.  
-This sdk has been tested with [bclan configuration](https://github.com/civis-blockchain/blockchain-coop/tree/master/bclan) fabric network configuration
+This sdk has been tested with [fabric bclan configuration](https://github.com/civis-blockchain/blockchain-coop/tree/master/bclan) fabric network configuration
 
 ## Configuration exemple
 
@@ -38,7 +38,8 @@ orderer.tls.crt
 openssl s_client -showcerts -connect orderer.bclan:7050 2>&1 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > sdk-core/src/test/resources/orderer.tls.crt
 ```
 
-For security reason in java, urls must match the certificate value.Add to /etc/hosts
+For security reason with the JVM, domain name used in urls must match with CN stored in the certificate.
+Add to /etc/hosts
 ```bash
 echo '127.0.0.1  ca.bc-coop.bclan' >> .env
 echo '127.0.0.1	peer0.bc-coop.bclan' >> .env

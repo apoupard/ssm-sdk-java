@@ -1,3 +1,5 @@
+apply plugin: 'java'
+
 jar {
     baseName 'ssm-sdk-core'
 }
@@ -14,7 +16,7 @@ dependencies {
     implementation "org.hyperledger.fabric-sdk-java:fabric-sdk-java:$fabric_version"
     implementation "org.bouncycastle:bcprov-jdk15on:$bouncycastle_version"
     implementation "com.fasterxml.jackson.core:jackson-databind:$jackson_version"
-    implementation "org.slf4j:slf4j-log4j12:$slf4jlog4j_version"
 
+    testImplementation "org.slf4j:slf4j-log4j12:$slf4jlog4j_version"
 
 }

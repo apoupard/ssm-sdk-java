@@ -13,7 +13,7 @@ public class FabricConfig {
         return new Builder();
     }
 
-    public static FabricConfig loadFromFabricConfig(String filename) throws IOException {
+    public static FabricConfig loadFromFile(String filename) throws IOException {
         String path = Thread.currentThread().getContextClassLoader().getResource(filename).getFile();
         Properties defaultProps = new Properties();
         defaultProps.load(new FileInputStream(path));
